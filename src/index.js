@@ -41,16 +41,20 @@ function renderCard({largeImageURL, tags, likes, views, comments, downloads}) {
     card.innerHTML = `<img class="img" src="${largeImageURL}" alt="${tags}"  loading="lazy" />
   <div class="info">
     <p class="info-item">
-      <b>Likes:<br>${likes}</b>
+      <b>Likes:</b>
+      ${likes}
     </p>
     <p class="info-item">
-      <b>Views:<br>${views}</b>
+      <b>Views:</b>
+      ${views}
     </p>
     <p class="info-item">
-      <b>Comments:<br>${comments}</b>
+      <b>Comments:</b>
+      ${comments}
     </p>
     <p class="info-item">
-      <b>Downloads:<br>${downloads}</b>
+      <b>Downloads:</b>
+      ${downloads}
     </p>
   </div>`;
     refs.gallery.append(card);
