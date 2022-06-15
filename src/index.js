@@ -1,4 +1,5 @@
 import axios from "axios";
+import SimpleLightbox from "simplelightbox";
 
 const refs = {
     searchInput: document.querySelector(".input"),
@@ -40,7 +41,7 @@ function onSearch(e) {
 function renderCard({largeImageURL, tags, likes, views, comments, downloads}) {
     const card = document.createElement("div");
     card.classList.add("photo-card");
-    card.innerHTML = `<img class="img" src="${largeImageURL}" alt="${tags}"  loading="lazy" />
+    card.innerHTML = `<a class="gallery__item" href="${largeImageURL}"><img class="img" src="${previewURL}" alt="${tags}"  loading="lazy" />
   <div class="info">
     <p class="info-item">
       <b>Likes:</b>
@@ -61,3 +62,5 @@ function renderCard({largeImageURL, tags, likes, views, comments, downloads}) {
   </div>`;
     refs.gallery.append(card);
 }
+const gallery = new SimpleLightbox('.gallery a', { captionDelay: 250, captionsData: "alt"});
+    imageContainer.addEventListener("click", gallery);
