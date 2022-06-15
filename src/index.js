@@ -11,12 +11,14 @@ const options = {
     image_type: "photo",
     orientation: "horizontal",
     safesearch: "true",
+    page: 2,
+    per_page: 20
 }
 const BASE_URL = "https://pixabay.com/api/";
 
 function findByName(inputName) {
   options.q = inputName;
-  const url = `${BASE_URL}?key=${options.key}&q=${options.q}&image_type=${options.image_type}&orientation=${options.orientation}&safesearch=${options.safesearch}`;
+  const url = `${BASE_URL}?key=${options.key}&q=${options.q}&image_type=${options.image_type}&orientation=${options.orientation}&safesearch=${options.safesearch}&page=${options.page}&per_page=${options.per_page}`;
   return axios.get(url);
 }
 
