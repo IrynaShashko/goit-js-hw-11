@@ -1,10 +1,12 @@
 import axios from "axios";
 import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
 const refs = {
     searchInput: document.querySelector(".input"),
     searchButton: document.querySelector(".btn"),
-    gallery: document.querySelector(".gallery")
+    gallery: document.querySelector(".gallery"),
+    photoCard: document.querySelector(".photo-card")
 }
 const options = {
     key: "28027745-aff25637f942541845898cadc",
@@ -20,6 +22,7 @@ const BASE_URL = "https://pixabay.com/api/";
 function findByName(inputName) {
   options.q = inputName;
   const url = `${BASE_URL}?key=${options.key}&q=${options.q}&image_type=${options.image_type}&orientation=${options.orientation}&safesearch=${options.safesearch}&page=${options.page}&per_page=${options.per_page}`;
+  console.log(url);
   return axios.get(url);
 }
 
@@ -38,10 +41,10 @@ function onSearch(e) {
     })
     .catch(error => console.log(error))
 }
-function renderCard({largeImageURL, tags, likes, views, comments, downloads}) {
+function renderCard({ largeImageURL, tags, likes, views, comments, downloads }) {
     const card = document.createElement("div");
     card.classList.add("photo-card");
-    card.innerHTML = `<a class="gallery__item" href="${largeImageURL}"><img class="img" src="${previewURL}" alt="${tags}"  loading="lazy" />
+    card.innerHTML = `<div class="img-container"><a class="gallery__item" href="${largeImageURL}"><img class="img" src="${largeImageURL}" alt="${tags}"  loading="lazy" /></a></div>
   <div class="info">
     <p class="info-item">
       <b>Likes:</b>
@@ -60,7 +63,14 @@ function renderCard({largeImageURL, tags, likes, views, comments, downloads}) {
       ${downloads}
     </p>
   </div>`;
-    refs.gallery.append(card);
+  refs.gallery.append(card);
+  
 }
-const gallery = new SimpleLightbox('.gallery a', { captionDelay: 250, captionsData: "alt"});
-    imageContainer.addEventListener("click", gallery);
+
+refs.gallery.addEventListener("click", onImageClick);
+
+function onImageClick(e) {
+  e.preventDefault();
+  let galleryCard = new SimpleLightbox('.img-container a', { captionDelay: 250 });
+  console.log(galleryCard); 
+}
