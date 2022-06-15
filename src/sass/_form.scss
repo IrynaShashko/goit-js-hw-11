@@ -1,6 +1,16 @@
 .form-container{
-    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    margin: 0;
+    padding: 30px;
+    background-color: #ccc;
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+        0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
     background-color: rgb(82, 77, 148);
+    margin: 0 auto;
 }
 .search-form{
     display: flex;
@@ -8,8 +18,8 @@
     justify-content: center;
 }
 .input{
-    width: 300px;
-    height: 40px;
+    width: 400px;
+    height: 60px;
     border: 1px solid #ccc;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -18,7 +28,7 @@
 }
 .btn{
     width: 100px;
-    height: 40px;
+    height: 60px;
     border: 1px solid #ccc;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
