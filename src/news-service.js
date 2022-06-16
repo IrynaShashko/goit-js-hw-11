@@ -20,12 +20,9 @@ export default class NewsService {
         const BASE_URL = "https://pixabay.com/api/";
 
         const url = `${BASE_URL}?key=${options.key}&q=${this.searchQuery}&image_type=${options.image_type}&orientation=${options.orientation}&safesearch=${options.safesearch}&page=${this.page}&per_page=${options.per_page}`;
-        console.log(url);
         return axios.get(url, options)
             .then(data => {
-                console.log(data);
                 this.page += 1;
-                console.log(data);
                 return data.data;
              });
     }
