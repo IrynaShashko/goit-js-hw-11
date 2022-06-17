@@ -98,3 +98,12 @@ refs.scroll.addEventListener("click", () => {
   refs.scroll.classList.add("is-hidden");
   refs.loadBtn.classList.add("is-hidden");
 })
+Notify.init({
+  width: '300px',
+  position: 'center-top',
+  distance: '70px',
+  opacity: 1,
+  borderRadius: '50px',
+  timeout: 3000,
+  // ...
+});

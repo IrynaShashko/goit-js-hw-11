@@ -9,6 +9,8 @@
     object-fit: cover;
     margin-bottom: 10px;
     box-sizing: border-box;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
 }
 
 .photo-card{
@@ -16,7 +18,7 @@
     width: calc((100% - 4 * 40px) / 4);
     margin: 10px;
     box-sizing: border-box;
-    border-radius: 0px 0px 4px 4px;
+    border-radius: 5px;
     border: 1px solid #afaeae;
 
     &:hover{
