@@ -1,7 +1,7 @@
 .img-container{
     height: 75%;
-
 }
+
 .img{
     display: block;
         width: 100%;
@@ -10,15 +10,15 @@
     margin-bottom: 10px;
     box-sizing: border-box;
 }
+
 .photo-card{
-    height: 400px;
+    height: 300px;
     width: calc((100% - 4 * 30px) / 4);
     margin: 15px;
     box-sizing: border-box;
     border-radius: 0px 0px 4px 4px;
-    border: 1px solid #cecbcb;
-    &:hover
-    &:focus{
+    border: 1px solid #afaeae;
+    &:hover{
         box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
             0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
     }
@@ -37,7 +37,8 @@
     display: flex;
     justify-content: space-around;
     font-size: 16px;
-    padding: 10px;
+    padding: 0 10px;
+    border-top: 1px solid #afaeae;
 }
 .info-item{
     display: flex;

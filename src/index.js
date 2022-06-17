@@ -47,7 +47,7 @@ function onSearch(e) {
 function onLoadMore(e) {
   e.preventDefault();
   newsService.fetchArticles().then(data => {
-      if (data.hits.length === 0) {
+    if (data.hits.length === 0) {
         Notify.warning(`We're sorry, but you've reached the end of search results.`);
         return;
       } else {
@@ -94,4 +94,6 @@ refs.scroll.addEventListener("click", () => {
     top: 0,
     behavior: "smooth"
   });
+  refs.scroll.classList.add("is-hidden");
+  refs.loadBtn.classList.add("is-hidden");
 })
