@@ -48,7 +48,10 @@ function onLoadMore(e) {
   e.preventDefault();
   newsService.fetchArticles().then(data => {
     if (data.hits.length === 0) {
-        Notify.warning(`We're sorry, but you've reached the end of search results.`);
+      refs.searchBtn.classList.add("is-hidden");
+      Notify.warning(`We're sorry, but you've reached the end of search results.`);
+      e.resetPage();
+      
         return;
       } else {
         data.hits.map(renderCard);
