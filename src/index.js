@@ -18,7 +18,6 @@ refs.loadBtn.addEventListener("click", onLoadMore);
 function onSearch(e) {
   e.preventDefault();
   refs.gallery.innerHTML = "";
-  refs.scroll.classList.add("is-hidden");
 
   newsService.query = e.currentTarget.elements.searchQuery.value;
 
@@ -48,11 +47,10 @@ function onLoadMore(e) {
   e.preventDefault();
   newsService.fetchArticles().then(data => {
     if (data.hits.length === 0) {
-      refs.searchBtn.classList.add("is-hidden");
-      Notify.warning(`We're sorry, but you've reached the end of search results.`);
-      e.resetPage();
+      refs.loadBtn.classList.add("is-hidden");
       
-        return;
+      Notify.warning(`We're sorry, but you've reached the end of search results.`);
+      return;
       } else {
         data.hits.map(renderCard);
         createGalleryAlbum();
