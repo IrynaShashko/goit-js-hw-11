@@ -60,7 +60,7 @@ function onLoadMore(e) {
     .catch(error => console.log(error));
 }
 function createGalleryAlbum() {
-  const galleryCard = new SimpleLightbox('.img-container a', { captionDelay: 250 });
+  const galleryCard = new SimpleLightbox('.img-container a', { captionDelay: 250, captionsData: 'alt'});
     galleryCard.refresh();
     refs.gallery.addEventListener("click", galleryCard);
 }

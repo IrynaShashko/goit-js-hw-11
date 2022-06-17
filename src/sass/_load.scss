@@ -18,6 +18,7 @@
         cursor: pointer;
         &:hover {
             background-color: rgb(46, 67, 99);
+            transform: scale(1.05);
         }
 }
 .is-hidden {
@@ -47,5 +48,6 @@
         justify-content: center;
         &:hover{
             background-color: rgb(46, 67, 99);
+            transform: scale(1.05);
         }
 }
