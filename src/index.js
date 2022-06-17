@@ -15,7 +15,7 @@ const newsService = new NewsService();
 refs.form.addEventListener("submit", onSearch);
 refs.loadBtn.addEventListener("click", onLoadMore);
 
-function galleryAlbum() {
+function createGalleryAlbum() {
   const galleryCard = new SimpleLightbox('.img-container a', { captionDelay: 250 });
     galleryCard.refresh();
     refs.gallery.addEventListener("click", galleryCard);
@@ -39,11 +39,11 @@ function onSearch(e) {
     .then(data => {
       if (data.hits.length === 0) {
         refs.loadBtn.classList.add("is-hidden");
-        Notify.info(`Sorry, there are no images matching your search query. Please try again.`);
+        Notify.warning(`Sorry, there are no images matching your search query. Please try again.`);
         return;
     } else {
       data.hits.map(renderCard);
-      galleryAlbum();
+      createGalleryAlbum();
       refs.loadBtn.classList.remove("is-hidden");
         Notify.success(`Hooray! We found ${data.totalHits} images.`);
       }
@@ -55,11 +55,11 @@ function onLoadMore(e) {
   e.preventDefault();
   newsService.fetchArticles().then(data => {
       if (data.hits.length === 0) {
-        Notify.failure(`Sorry, there are no more images matching your search query. Please try again.`);
+        Notify.warning(`Sorry, there are no more images matching your search query. Please try again.`);
         return;
       } else {
         data.hits.map(renderCard);
-        galleryAlbum();
+        createGalleryAlbum();
         refs.scroll.classList.remove("is-hidden");
       }
     })
